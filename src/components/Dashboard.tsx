@@ -1,4 +1,6 @@
 interface noProps {
 
 }
-export function Dashboard(props: noProps)
+export function Dashboard(props: noProps){
+    
+}
