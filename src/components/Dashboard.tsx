@@ -5,19 +5,21 @@ import {Button, Counter} from "../hooks/useButtons"
 interface noProps {
 
 }
-export function Dashboard(props: noProps){
-    const [buttons, addButtons] = useButtons()
+function Dashboard(props: noProps){
+    const [buttons, addButton] = useButtons()
     return (
         <>
             {buttons.map((value: Button, index: number) => {
                 <div>
-                    <button onClick = {() => {value.counter.plus()}}>+</button>
-                    <span>{value.counter.value}</span>
+                    <button onClick = {() => {value.counter.plus()}}>{value.label}+</button>
+                    <button onClick = {() => {value.counter.minus()}}>{value.label}-</button>
+                    <span>{value.label + ": "}{value.counter.value}</span>
                 </div>
 
             })}
-            <button>Add</button>
+            <button onClick = {() => addButton("tst")}>Add</button>
         </>
     )
 
 }
+export default Dashboard

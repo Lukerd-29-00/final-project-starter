@@ -10,7 +10,7 @@ export interface Button {
     label: string
 }
 
-function useButtons(): [Array<Button>, (label: string, incrementUp: () => void, incrementDown: () => void) => void]{
+function useButtons(): [Array<Button>, (label: string) => void]{
     const [buttons, setButtons] = useState(new Array<Button>())
     const increment = (i: number, x: number) => {
         let newButtons = new Array<Button>()
@@ -20,7 +20,7 @@ function useButtons(): [Array<Button>, (label: string, incrementUp: () => void, 
 
     const addButton = (label: string) => {
         let newButtons = new Array<Button>().concat(buttons)
-        newButtons.push({label: label, counter: {value: 0, plus: () => {increment(newButtons.length,1)}, minus: () incrementDown}})
+        newButtons.push({label: label, counter: {value: 0, plus: () => {increment(newButtons.length,1)}, minus: () => {increment(newButtons.length,-1)}}})
         setButtons(newButtons)
     }
 
