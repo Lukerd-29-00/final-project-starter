@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, useState } from "react"
 import useButtons from "../hooks/useButtons"
 import {Button, Counter} from "../hooks/useButtons"
+import React, { Component } from 'react'
 
 interface noProps {
 
